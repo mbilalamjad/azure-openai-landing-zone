@@ -24,7 +24,7 @@ This architecture is designed with security as a priority. All the services comm
 
 For administrative tasks, a secure jumpbox and Azure Bastion are provisioned for accessing internal virtual network resources without exposing them to the public internet. Additionally, the whole architecture is planned with scalability and high availability in mind to accommodate varying workloads.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-openai-landing-zone%2Fmain%2Ffoundation%2Fstandalone%2Fbicep%2Fmain.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmbilalamjad%2Fazure-openai-landing-zone%2Fmain%2Ffoundation%2Fstandalone%2Fbicep%2Fmain.json)
 
 
 ## Web Components
