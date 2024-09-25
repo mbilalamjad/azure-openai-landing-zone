@@ -1,5 +1,65 @@
 <!-- BEGIN MICROSOFT SECURITY.MD V0.0.9 BLOCK -->
 
+As you consider and evaluate Microsoft cloud services, it's critical to understand the shared responsibility model and which security tasks Microsoft handles and which tasks you handle. The workload responsibilities vary depending on whether the workload is hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter.
+
+Learn more about shared responsibility and strategies to improve your security posture in the Well-Architected Framework's overview of the [security pillar](https://learn.microsoft.com/en-us/azure/well-architected/security/).
+
+# Network Security
+Where possible it is recommended to provision AI services in own Virtual Network (VNet Injection). Following are the advantages 
+Virtual Network Injection: 
+- Dedicated Private Deployments: VNet injection allows you to deploy dedicated instances of a PaaS service into your own virtual network. This means the service instances are deployed into a subnet in your virtual network, and you can apply network policies and rules to these instances 
+- Network Isolation: This model provides network isolation by using private IP addresses within your virtual network. It allows resources within the virtual network to communicate privately and securely 
+- Complexity and Scalability: VNet injection can increase complexity and reduce scalability due to the need for managing dedicated instances and public IP addresses 
+- Dedicated Resources: VNet injection is suitable for services that require dedicated resources and can be deployed into the instance owner's VNet. This model is typically used for services that need to be isolated from other services 
+- Service Endpoints: VNet injection allows the use of service endpoints to secure access to Azure PaaS services from within your virtual network
+  
+| Property                                            | VNet Injection                     |   Managed Vnet                 |                                                                                                    
+|-----------------------------------------------------|------------------------------------|--------------------------------|
+| Completed isolation of VNET for the tenant          |        Yes                         | Partial                        |
+|Customer access to VNET                              |        Yes                         | No                             |
+|Support for Private Link services                    |        Yes                         | Yes                            |
+|Support for service endpoints                        |        Yes                         | Yes                            |
+|UDR support (Custom Routing)                         |        Yes                         | No                             |
+|NSG Support (Secured using NSG)                      |        Yes                         | No                             |
+|Azure Policy Support                                 |        Yes                         | Partial                        |
+|Traffic Filtering                                    |        Yes                         | Partial                        |
+|Integration with standard Hub & Spoke Network Arch.  |        Yes                         | Yes                            |
+|Integration with vWAN Architecture                   |        Yes                         | Yes                            |
+|Azure DDoS support                                   |        Yes                         | Yes                            |
+|Data Exfiltration risk                               |        Extremely Low               | Low                            |
+|Network management Overhead                          |        High                        | Low                            |
+|Full control over IP address space                   |        Yes                         | No                             |
+
+Additional guidance for Network Security in Azure is listed [here](https://learn.microsoft.com/en-us/security/benchmark/azure/security-control-network-security)
+
+# Compute Security 
+
+## Trusted Launch of VMs
+Trusted launch provides foundational security for Operating system hosted in virtual machine by attesting its boot integrity. Trusted launch security features are applicable for running OS and OS disks. Trusted Launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
+
+ - Firmware rootkits: These kits overwrite the firmware of the virtual machine (VM) BIOS, so the rootkit can start before the operating system (OS).
+ - Boot kits: These kits replace the OS's bootloader so that the VM loads the boot kit before the OS.
+ - Kernel rootkits: These kits replace a portion of the OS kernel, so the rootkit can start automatically when the OS loads.
+ - Driver rootkits: These kits pretend to be one of the trusted drivers that the OS uses to communicate with the VM's components.
+
+For opportunities in AI model development, training, fine-tuning and inferencing it is suggested to enable the Virtual Machines in Trusted Launch mode. 
+
+## Azure Attestation Service
+Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service supports attestation of the platforms backed by Trusted Platform Modules (TPMs) alongside the ability to attest to the state of Trusted Execution Environments (TEEs) such as Intel® Software Guard Extensions (SGX) enclaves, Virtualization-based Security (VBS) enclaves, Trusted Platform Modules (TPMs), Trusted launch for Azure VMs and Azure confidential VMs. Attestation is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware.
+
+# Software Vulnerabilities
+
+# Defender for Cloud
+Microsoft Defender for Cloud is a cloud-native application protection platform (CNAPP) that is made up of security measures and practices that are designed to protect cloud-based applications from various cyber threats and vulnerabilities. Defender for Cloud combines the capabilities of:
+ - A development security operations (DevSecOps) solution that unifies security management at the code level across multicloud and multiple-pipeline environments
+ - A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
+ - 
+# Data Exfiltration 
+
+
+
+
+
 ## Security
 
 Microsoft takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub organizations, which include [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) and [Xamarin](https://github.com/xamarin).
