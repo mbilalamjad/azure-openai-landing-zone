@@ -1,5 +1,55 @@
 <!-- BEGIN MICROSOFT SECURITY.MD V0.0.9 BLOCK -->
 
+## Infrastructure Security for AI workloads
+
+# Network Security
+Where possible it is recommended to provision AI services in own Virtual Network (VNet Injection). Following are the advantages 
+
+Virtual Network Injection: 
+
+Dedicated Private Deployments: VNet injection allows you to deploy dedicated instances of a PaaS service into your own virtual network. This means the service instances are deployed into a subnet in your virtual network, and you can apply network policies and rules to these instances 
+
+Network Isolation: This model provides network isolation by using private IP addresses within your virtual network. It allows resources within the virtual network to communicate privately and securely 
+
+Complexity and Scalability: VNet injection can increase complexity and reduce scalability due to the need for managing dedicated instances and public IP addresses 
+
+Dedicated Resources: VNet injection is suitable for services that require dedicated resources and can be deployed into the instance owner's VNet. This model is typically used for services that need to be isolated from other services 
+
+Service Endpoints: VNet injection allows the use of service endpoints to secure access to Azure PaaS services from within your virtual network 
+
+| Property                                            | VNet Injection                     |   Managed Vnet                |                                                                                                    
+|-----------------------------------------------------|------------------------------------|--------------------------------|
+
+
+| Completed isolation of VNET for the tenant          |        Yes                         | Partial |
+|Customer access to VNET                              |        Yes                        | No       |
+|Support for Private Link services                    |        Yes                         |  Yes    |
+|Support for service endpoints |Yes | Yes|
+|UDR support (Custom Routing) |Yes | No |
+|NSG Support (Secured using NSG) |Yes | No|
+|Azure Policy Support |Yes | Partial|
+|Traffic Filtering | Yes | Partial|
+|Integration with standard Hub and Spoke Network Architecture | Yes| Yes|
+|Integration with vWAN Architecture |Yes |Yes |
+|Azure DDoS support | Yes| Yes|
+|Data Exfiltration risk |Extremely Low| Low|
+|Network management Overhead |High |Low|
+|Full control over IP address space | Yes |No|
+
+
+
+# Compute Security 
+
+
+# Software Vulnerabilities
+
+
+# Defender for Cloud
+
+
+# Data Exfiltration 
+
+
 ## Security
 
 Microsoft takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub organizations, which include [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet) and [Xamarin](https://github.com/xamarin).
